@@ -1,7 +1,58 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beats by Gorilla</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+  <header class="text-center py-6 bg-black shadow-md">
+    <h1 class="text-4xl font-bold tracking-wide">🔥 Gorilla Beats 🔥</h1>
+    <p class="text-gray-400">Preview & Buy Dope Instrumentals</p>
+  </header>
+
+  <main class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="beatGrid"></main>
+
+  <script>
+    const beats = [
+      {
+        title: "Jungle Madness",
+        audio: "assets/audio/jungle-madness.mp3",
+        buyLink: "https://gumroad.com/l/jungle-madness"
+      },
+      {
+        title: "Ape Sh!t Mode",
+        audio: "assets/audio/ape-shit-mode.mp3",
+        buyLink: "https://gumroad.com/l/ape-shit-mode"
+      },
+      {
+        title: "Banana Bounce",
+        audio: "assets/audio/banana-bounce.mp3",
+        buyLink: "https://gumroad.com/l/banana-bounce"
+      }
+    ];
+
+    let currentSound;
+
+    function playBeat(beat) {
+      if (currentSound) currentSound.stop();
+      currentSound = new Howl({ src: [beat.audio] });
+      currentSound.play();
+    }
+
+    const grid = document.getElementById('beatGrid');
+    beats.forEach(beat => {
+      const card = document.createElement('div');
+      card.className = "bg-gray-800 rounded-2xl shadow-md p-4 flex flex-col items-center";
+      card.innerHTML = `
+        <h2 class="text-xl font-semibold mb-2">${beat.title}</h2>
+        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded mb-3" onclick='playBeat(${JSON.stringify(beat)})'>▶ Preview</button>
+        <a href="${beat.buyLink}" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">💰 Buy</a>
+      `;
+      grid.appendChild(card);
+    });
+  </script>
 </body>
 </html>
