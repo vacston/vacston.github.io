@@ -18,7 +18,7 @@
 </head>
 
 <body class="bg-neutral-950 text-white font-sans">
-  <header class="bg-neutral-900/90 backdrop-blur-sm py-6 sticky top-0 z-10 shadow-lg">
+  <header class="bg-neutral-900/90 backdrop-blur-sm py-6 sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 flex justify-between items-center">
       <h1 class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition-colors duration-200">
         <a href="#">Beats by Vacston</a>
@@ -41,15 +41,21 @@
       </nav>
     </div>
 </header>
-  <section class="bg-gradient-to-r from-indigo-600 to-indigo-900 py-20 text-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Fire Beats for Your Next Hit</h2>
-      <p class="text-lg md:text-xl mb-8">High-quality, original beats. Buy now or lease today.</p>
-      <a href="#beats"
-        class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-indigo-400 hover:text-white transition">Browse
-        Beats</a>
-    </div>
-  </section>
+<section class="bg-gradient-to-r from-indigo-600 to-indigo-900 py-20 text-center relative overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-indigo-900 z-1"></div>
+    <img 
+      src="assets/images/jifs/jamming-music.gif"
+      alt="Dawg Jamming" 
+      class="h-full w-full object-cover origin-center"
+    >
+  </div>
+  <div class="container mx-auto px-4 relative z-10 bg-neutral-900/95 rounded-sm p-8 ">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-4">Fire Beats for Your Next Hit</h2>
+    <p class="text-lg md:text-xl mb-8">High-quality, original beats. Buy now or lease today.</p>
+    <a href="#beats" class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-indigo-400 hover:text-white transition">Browse Beats</a>
+  </div>
+</section>
   <section id="beats" class="py-16">
     <div class="container mx-auto px-4">
       <h3 class="text-3xl font-bold text-center mb-12">Available Beats</h3>
