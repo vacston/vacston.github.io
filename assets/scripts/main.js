@@ -1,7 +1,10 @@
-// Remove existing content and replace with:
 document.addEventListener('DOMContentLoaded', function() {
-    // Defer non-critical scripts
-    setTimeout(() => {
+    let bmcLoaded = false;
+    
+    const loadBMC = () => {
+        if (bmcLoaded) return;
+        bmcLoaded = true;
+        
         const bmcScript = document.createElement('script');
         bmcScript.src = 'https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js';
         bmcScript.setAttribute('data-name', 'BMC-Widget');
@@ -13,6 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         bmcScript.setAttribute('data-position', 'Right');
         bmcScript.setAttribute('data-x_margin', '18');
         bmcScript.setAttribute('data-y_margin', '40');
+        bmcScript.setAttribute('async', 'true');
+        bmcScript.setAttribute('defer', 'true');
         document.body.appendChild(bmcScript);
-    }, 2000);
+    };
+
+    // Load BMC widget only when user scrolls
+    window.addEventListener('scroll', () => {
+        requestIdleCallback(() => loadBMC());
+    }, { once: true });
 });

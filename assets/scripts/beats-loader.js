@@ -10,7 +10,7 @@ class BeatsLoader {
   }
 
   init() {
-    this.beatsGrid.innerHTML = ''; 
+    this.beatsGrid.innerHTML = '';
     this.createPlaceholders();
     this.observeTracks();
   }
@@ -33,6 +33,14 @@ class BeatsLoader {
     iframe.style.border = 'none';
     iframe.allow = 'autoplay';
     iframe.loading = 'lazy';
+    iframe.setAttribute('importance', 'low');
+    iframe.setAttribute('fetchpriority', 'low');
+    
+    // Add connection hint
+    const hint = document.createElement('link');
+    hint.rel = 'preconnect';
+    hint.href = 'https://www.beatstars.com';
+    document.head.appendChild(hint);
     
     iframe.onload = () => {
       this.loadedTracks++;
@@ -46,12 +54,15 @@ class BeatsLoader {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          this.loadTrack(entry.target);
-          observer.unobserve(entry.target);
+          setTimeout(() => {
+            this.loadTrack(entry.target);
+            observer.unobserve(entry.target);
+          }, this.loadedTracks * 200);
         }
       });
     }, {
-      rootMargin: '50px'
+      rootMargin: '50px',
+      threshold: 0.1
     });
 
     this.beatsGrid.querySelectorAll('.beat-placeholder').forEach(placeholder => {
