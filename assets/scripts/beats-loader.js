@@ -2,7 +2,8 @@ class BeatsLoader {
   constructor() {
     this.tracks = [
       '13971241', '22261835', '22240901', '22229896',
-      '22012858', '20267693', '18868266', '22259975'
+      '22012858', '20267693', '18868266', '22259975',
+      '22283442'
     ];
     this.loading = document.getElementById('loading');
     this.beatsGrid = document.getElementById('beats-grid');
