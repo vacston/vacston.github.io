@@ -47,13 +47,17 @@
 <section class="bg-gradient-to-r from-indigo-600 to-indigo-900 py-20 text-center relative overflow-hidden">
   <div class="absolute inset-0 z-0">
     <div class="absolute inset-0 bg-gradient-to-r from-transparent to-indigo-900 z-1"></div>
-    <img 
-      src="assets/images/jifs/jamming-music.gif"
+    <video 
+      src="assets/images/jifs/jamming-music-ezgif.com-gif-to-webm-converter.webm"
       alt="Dawg Jamming" 
       class="h-full w-full object-cover origin-center"
       loading="lazy"
       decoding="async"
       fetchpriority="low"
+      autoplay
+      loop
+      muted
+      preload="auto"
     >
   </div>
   <div class="container mx-auto px-4 relative z-10 bg-neutral-900/95 rounded-sm p-8 ">
@@ -62,28 +66,33 @@
     <a href="#beats" class="bg-white text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-indigo-400 hover:text-white transition">Browse Beats</a>
   </div>
 </section>
-  <section id="beats" class="py-16">
-    <div class="container mx-auto px-4">
-      <h3 class="text-3xl font-bold text-center mb-12">Available Beats</h3>
-      <!-- Add loading spinner -->
-      <div id="loading" class="text-center py-12">
-        <svg class="animate-spin h-12 w-12 mx-auto text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none"
-          viewBox="0 0 24 24">
-          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-          <path class="opacity-75" fill="currentColor"
-            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
-          </path>
-        </svg>
-        <p class="mt-4 text-indigo-400">Loading beats...</p>
-      </div>
-      <div id="beats-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
-        <!-- Placeholders will be inserted by JavaScript -->
-      </div>
+<section id="beats" class="py-16 bg-neutral-900/50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h3 class="text-4xl font-bold text-indigo-400 mb-4">Available Beats</h3>
     </div>
-  </section>
+
+    <!-- Loading spinner -->
+    <div id="loading" class="text-center py-12">
+      <svg class="animate-spin h-12 w-12 mx-auto text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none"
+        viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+        </path>
+      </svg>
+      <p class="mt-4 text-indigo-400">Loading beats...</p>
+    </div>
+
+    <!-- Beats grid -->
+    <div id="beats-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 hidden">
+      <!-- Placeholders will be inserted by JavaScript -->
+    </div>
+  </div>
+</section>
   <section id="contact" class="py-16">
     <div class="container mx-auto px-4 text-center">
-      <h3 class="text-3xl font-bold mb-6">Get in Touch</h3>
+      <h3 class="text-3xl font-bold mb-6 text-indigo-400">Get in Touch</h3>
       <p class="text-lg mb-8">Questions? Custom beats? Hit me up!</p>
       <!-- Instagram -->
       <div class="relative inline-block group hover:scale-120 transition-transform duration-200">
